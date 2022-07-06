@@ -2,7 +2,7 @@ if [ -z $TORRENT_TIMEOUT ]
 then
    TORRENT_TIMEOUT=0
 fi
-TRACKERS=$(curl -Ns https://raw.githubusercontent.com/devillD/trackers/main/aria.txt)
+TRACKERS=$(curl -Ns https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt https://ngosang.github.io/trackerslist/trackers_all_http.txt https://newtrackon.com/api/all https://raw.githubusercontent.com/hezhijie0327/Trackerslist/main/trackerslist_tracker.txt | awk '$0' | tr '\n\n' ',')
 USERAGENT=$(echo "Mozilla/5.0 (Linux; Android 12; SM-A205U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.78 Mobile Safari/537.36")
 aria2c --enable-rpc=true --check-certificate=false --daemon=true \
    --max-connection-per-server=10 --rpc-max-request-size=1024M --quiet=true \
